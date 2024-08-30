@@ -48,3 +48,53 @@ print(soup.find("h1"))
 
 print(soup.find_all("h2"))
 
+print(soup.find_all('p'))
+
+#get the data by class
+
+class_data=soup.find('div',class_='wrapperr h-100')
+
+print(class_data)
+
+print(class_data.find_all('p'))
+
+print(class_data.find_all('a'))
+
+#get the data by id
+
+print('printing data using id')
+
+id_data=soup.find('div',id='__next')
+
+print(id_data)
+
+lines=soup.find_all('p')
+
+print(lines)
+
+for list in lines:
+    print(list.text)
+
+
+class_data=soup.find('p',class_="fs-16 fw-400 lh-24 label-color-1 card-text")
+
+print(class_data.text)
+
+
+# getting the links from website
+
+links=soup.find_all('a')
+
+print(links)
+
+for link in links:
+    print(link.get('href'))
+
+# getting the image from the website   
+
+images=soup.find_all('img')
+
+print(images)
+
+for image in images:
+    print(image.get('src'))
