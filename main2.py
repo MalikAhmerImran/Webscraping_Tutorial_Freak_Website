@@ -29,11 +29,18 @@ df=pd.DataFrame(columns=header_list)
 
 rows=table.find_all('tr')
 
+
 for row in rows[1:]:
 
-    table_data=row.find_all('td')
+    print(row)
+
+    first_col=row.find_all('td')[0].find('div',class_='ih-pt-ic').text.strip()
+
+    table_data=row.find_all('td')[1:]
     
     row=[tr.text for tr in table_data]
+
+    row.insert(0,first_col)
 
     df.loc[len(df)]=row
 
